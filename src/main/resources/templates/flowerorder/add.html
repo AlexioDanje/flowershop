@@ -1,0 +1,132 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title></title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <div class="container">
+            <form th:object="${flowerorder}" action="/api/OrderService/orders/add" th:action="@{/api/OrderService/orders/add}" method="post" class="form-horizontal">
+                <fieldset>
+                    <p th:text="${message}">message here</p>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Customer ID</th>
+                            <td><input type="text" name="customerId"/>
+                              <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Order Date</th>
+                            <td><input type="text" name="orderDate"/>
+                               <br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Number Baby Boy Bouquets</th>
+                            <td><label for="item1">Select number:</label>
+                                <select id="item1" name="item1">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                <br/>
+                            </td>
+                        </tr>
+                                                </tr>
+                           <tr>
+                            <th>Number Baby Girl Bouquets</th>
+                            <td><label for="item2">Select number:</label>
+                                <select id="item2" name="item2">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Very Special Bouquets</th>
+                            <td><label for="item3">Select number:</label>
+                                <select id="item3" name="item3">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Small Stuffed Animal</th>
+                            <td><label for="item4">Select number:</label>
+                                <select id="item4" name="item4">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Medium Stuffed Animal</th>
+                            <td><label for="item5">Select number:</label>
+                                <select id="item5" name="item5">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><br/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>Large Stuffed Animal</th>
+                            <td><label for="item6">Select number:</label>
+                                <select id="item6" name="item6">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select><br/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>Order Status</th>
+                            <td><label for="orderStatus">Select status:</label>
+                                <select id="orderStatus" name="orderStatus">
+                                    <option value="0">Open</option>
+                                    <option value="1">In Progress</option>
+
+                                </select><br/>
+                            </td>
+                        </tr>
+
+                          <tr>
+                            <th>Total Cost</th>
+                            <td><input type="text" name="totalCost"/>
+                               <br/>
+                            </td>
+                        </tr>
+                          <tr>
+                            <th>Amount Paid</th>
+                            <td><input type="text" name="amountPaid"/>
+                               <br/>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div style="text-align: left;" class="form-actions">
+                        <button class="button" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

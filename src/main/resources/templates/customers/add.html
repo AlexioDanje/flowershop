@@ -1,0 +1,71 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title></title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <div class="container">
+            <form th:object="${customers}" action="/api/CustomerService/customers/add" th:action="@{/api/CustomerService/customers/add}" method="post" class="form-horizontal">
+                <fieldset>
+                    <p th:text="${message}">message here</p>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Address</th>
+                            <td><input type="text" name="address1"/>
+                              <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Fullname </th>
+                            <td><input type="text" name="fullname"/>
+                               <br/>
+                            </td>
+                        </tr>
+
+                          <tr>
+                            <th>City</th>
+                            <td><input type="text" name="city"/>
+                               <br/>
+                            </td>
+                        </tr>
+                          <tr>
+                            <th>Province</th>
+                            <td><input type="text" name="province"/>
+                               <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Postal Code</th>
+                            <td><input type="text" name="postalCode"/>
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td><input type="text" name="phoneNumber"/>
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Birthday</th>
+                            <td><input type="text" name="birthDate"/>
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Loyalty Card</th>
+                            <td><input type="text" name="loyaltyCard"/>
+                                <br/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align: left;" class="form-actions">
+                        <button class="button" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

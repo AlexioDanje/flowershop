@@ -1,0 +1,79 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title></title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+
+        
+        
+        
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Order List&nbsp;<a th:href="@{/api/OrderService/orders/add}" th:text="Add" class="button"></a></h2>
+            <p><span th:text="${findNameMessage}"></span></p>
+            <p><span th:text="${message}"></span></p>
+
+            <div class="table-container">
+
+                
+
+                
+                <table  id="theData" class="table centered is-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 150px;">id</th>
+                            <th style="width: 150px;">Customer ID</th>
+                            <th style="width: 150px;">Order Date</th>
+                            <th style="width: 150px;">Baby Boy Bouquets</th>
+                            <th style="width: 150px;">Baby Girl Bouquets</th>
+                            <th style="width: 150px;">Very Special Bouquets</th>
+                            <th style="width: 150px;">Small Stuffed Animal</th>
+                            <th style="width: 150px;">Medium Stuffed Animal</th>
+                            <th style="width: 150px;">Large Stuffed Animal</th>
+                            <th style="width: 150px;">Total Cost</th>
+                            <th style="width: 150px;">Amount Paid</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="flowerorder : ${floweroders}">
+                            <td th:text="${flowerorder.id}"></td>
+                            <td th:text="${flowerorder.customerId}"></td>
+                            <td th:text="${flowerorder.orderDate}"></td>
+                            <td th:text="${flowerorder.item1}"></td>
+                            <td th:text="${flowerorder.item2}"></td>
+                            <td th:text="${flowerorder.item3}"></td>
+                            <td th:text="${flowerorder.item4}"></td>
+                            <td th:text="${flowerorder.item5}"></td>
+                            <td th:text="${flowerorder.item6}"></td>
+                            <td th:text="${flowerorder.orderStatus}"></td>
+                            <td th:text="${flowerorder.totalCost}"></td>
+                            <td th:text="${flowerorder.amountPaid}"></td>
+                            <td th:text="${flowerorder.flowerorderTypeDescription}"></td>
+                            <td><a th:href="@{/api/OrderService/edit(id=${flowerorder.id})}">Edit</a>&nbsp;<a
+                                    th:href="@{/api/OrderService/delete(id=${flowerorder.id})}">Delete</a></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <form th:object="${floweroders}" action="/api/OrderService/orders/file" th:action="@{/api/OrderService/orders/file}" method="post" class="form-horizontal">
+                    <div style="text-align: left;" class="form-actions">
+                        <button class="button" type="submit">Export Data</button>
+                    </div>
+                </form>
+                
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>

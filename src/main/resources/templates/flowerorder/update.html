@@ -1,0 +1,114 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="fragments/head :: headerFragment">
+        <title></title>
+    </head>
+    <body>
+        <nav th:replace="fragments/navHeader :: navbar"></nav>
+        <div class="container">
+            <form th:object="${flowerorder}" action="/api/OrderService/orders/add" th:action="@{/api/OrderService/orders/add}" method="post" class="form-horizontal">
+                <fieldset>
+                    <p th:text="${message}">message here</p>
+                    <table class="table table-striped">
+
+                        <tr>
+                            <th>Customer ID</th>
+                            <td><input type="text" th:field="${flowerorder.customerId}"/>
+                                <ul th:if="${#fields.hasErrors('customerId')}">
+                                    <li class="error" th:each="err : ${#fields.errors('customerId')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Order Date</th>
+                            <td><input type="text" th:field="${flowerorder.orderDate}"/>
+                                <ul th:if="${#fields.hasErrors('orderDate')}">
+                                    <li class="error" th:each="err : ${#fields.errors('orderDate')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Number Baby Boy Bouquets</th>
+                            <td><input type="text" th:field="${flowerorder.item1}"/>
+                                <ul th:if="${#fields.hasErrors('item1')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item1')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                                                </tr>
+                           <tr>
+                            <th>Number Baby Girl Bouquets</th>
+                            <td><input type="text" th:field="${flowerorder.item2}"/>
+                                <ul th:if="${#fields.hasErrors('item2')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item2')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Very Special Bouquets</th>
+                            <td><input type="text" th:field="${flowerorder.item3}"/>
+                                <ul th:if="${#fields.hasErrors('item3')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item3')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Small Stuffed Animal</th>
+                            <td><input type="text" th:field="${flowerorder.item4}"/>
+                                <ul th:if="${#fields.hasErrors('item4')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item4')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                           <tr>
+                            <th>Medium Stuffed Animal</th>
+                            <td><input type="text" th:field="${flowerorder.item5}"/>
+                                <ul th:if="${#fields.hasErrors('item5')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item5')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>Large Stuffed Animal</th>
+                            <td><input type="text" th:field="${flowerorder.item6}"/>
+                                <ul th:if="${#fields.hasErrors('item6')}">
+                                    <li class="error" th:each="err : ${#fields.errors('item6')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>Order Status</th>
+                            <td><input type="text" th:field="${flowerorder.orderStatus}"/>
+                                <ul th:if="${#fields.hasErrors('orderStatus')}">
+                                    <li class="error" th:each="err : ${#fields.errors('orderStatus')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+
+                          <tr>
+                            <th>Total Cost</th>
+                            <td><input type="text" th:field="${flowerorder.totalCost}"/>
+                                <ul th:if="${#fields.hasErrors('totalCost')}">
+                                    <li class="error" th:each="err : ${#fields.errors('totalCost')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+                          <tr>
+                            <th>Amount Paid</th>
+                            <td><input type="text" th:field="${flowerorder.amountPaid}"/>
+                                <ul th:if="${#fields.hasErrors('amountPaid')}">
+                                    <li class="error" th:each="err : ${#fields.errors('amountPaid')}" th:text="${err}">Name invalid</li>
+                                </ul><br/>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div style="text-align: left;" class="form-actions">
+                        <button class="button" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+    </body>
+</html>
